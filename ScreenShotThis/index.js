@@ -7,9 +7,9 @@ module.exports = async function (context, req) {
     context.log('👀 JavaScript HTTP trigger function processed a request.');
 
     const qs = new URLSearchParams(req.query);
-    console.log(`👋 {you:url-to-screenshot}?${qs.toString()}`);
+    console.log(`👋 https://skillshack.dev/certificates/project?${qs.toString()}`);
     const screenshotBuffer = await getScreenshot(
-        `{you:url-to-screenshot}?${qs.toString()}`
+        `https://skillshack.dev/certificates/project?${qs.toString()}`
     );
     context.res = {
         body: screenshotBuffer,
