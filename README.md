@@ -13,3 +13,11 @@ Add the following to `.vscode/settings.json`:
 ```
 
 Without these settings, Azure Functions will not be able to deploy properly to support puppeteer.
+
+Add the following to end of `.funcignore`
+
+```
+node_modules/
+```
+
+There is no need to bundle `node_modules` when doing a remote build.
