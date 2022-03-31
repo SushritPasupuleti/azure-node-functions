@@ -7,9 +7,9 @@ module.exports = async function (context, req) {
     context.log('👀 JavaScript HTTP trigger function processed a request.');
 
     const qs = new URLSearchParams(req.query);
-    console.log(`👋 https://skillshack.dev/certificates/project?${qs.toString()}`);
+    console.log(`👋 {url-path-to-screenshot}?${qs.toString()}`);
     const screenshotBuffer = await getScreenshot(
-        `https://skillshack.dev/certificates/project?${qs.toString()}`
+        `{url-path-to-screenshot}?${qs.toString()}`
     );
     context.res = {
         body: screenshotBuffer,
@@ -24,7 +24,7 @@ async function getScreenshot(url) {
     const cachedImage = cached.get(url);
 
     if (cachedImage) {
-        // return cachedImage;
+        return cachedImage;
     }
 
     const browser = await puppeteer.launch({
